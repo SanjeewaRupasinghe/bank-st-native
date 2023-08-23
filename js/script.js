@@ -37,17 +37,5 @@ document.addEventListener("DOMContentLoaded", function () {
     amount.value = "";
   });
 
-  document.getElementById("generatePdfBtn").addEventListener("click", function() {
-    const pdf = new jsPDF();
-    const transactions = document.getElementById("transactionList").innerHTML;
-    const balance = document.getElementById("balance").textContent;
-
-    pdf.text("Transaction History", 10, 10);
-    pdf.fromHTML(transactions, 10, 20);
-    pdf.text(`Total Balance: ${balance}`, 10, pdf.autoTable.previous.finalY + 10);
-
-    pdf.save("transaction_history.pdf");
-  });
-
 });
 
